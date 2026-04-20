@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
 import { FaUser, FaEnvelope, FaPhone, FaArrowRight, FaShieldAlt } from 'react-icons/fa';
 import { useGetHotelDetailsQuery } from '../slices/hotelsApiSlice';
 import { useGetHotelRoomsQuery } from '../slices/roomsApiSlice';
@@ -8,13 +9,18 @@ import { useGetHotelRoomsQuery } from '../slices/roomsApiSlice';
 const Booking = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [paymentMethod, setPaymentMethod] = useState('razorpay');
+  const { userInfo } = useSelector((state) => state.auth);
   
+  const names = userInfo?.name ? userInfo.name.split(' ') : [''];
+  const first = names[0] || '';
+  const last = names.slice(1).join(' ') || '';
+
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
+    firstName: first,
+    lastName: last,
+    email: userInfo?.email || '',
+    phone: userInfo?.phone || '',
+    guests: 2,
     specialRequests: ''
   });
   
@@ -58,15 +64,16 @@ const Booking = () => {
   const tax = basePrice * 0.1;
   const totalPrice = basePrice + tax;
 
-  const handleConfirm = () => {
+  const handleConfirm = (e) => {
+    e.preventDefault();
     const bookingPayload = {
       hotelRef: id,
       roomRef: room._id,
       checkInDate: new Date(checkInDate),
       checkOutDate: new Date(checkOutDate),
-      guestCount: 2,
+      guestCount: Number(formData.guests),
       totalPrice: totalPrice,
-      paymentMethod,
+      paymentMethod: 'razorpay',
     };
     navigate('/payment', { state: { bookingPayload } });
   };
@@ -78,13 +85,13 @@ const Booking = () => {
         <p className="text-gray-400 mt-2">Just a few more details to confirm your stay.</p>
       </motion.div>
 
-      <div className="flex flex-col lg:flex-row gap-8">
+      <form onSubmit={handleConfirm} className="flex flex-col lg:flex-row gap-8">
         {/* Form Section */}
         <div className="w-full lg:w-2/3 space-y-8">
           
           <div className="glass-panel p-6 sm:p-8 rounded-2xl">
             <h2 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Stay Details</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">Check-in Date</label>
                 <input 
@@ -104,6 +111,16 @@ const Booking = () => {
                   className="glass-input w-full text-white" 
                 />
               </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-400 mb-2">Number of Guests</label>
+                <select name="guests" value={formData.guests} onChange={handleChange} className="glass-input w-full text-white bg-[#161925]" required>
+                   <option value="1">1 Guest</option>
+                   <option value="2">2 Guests</option>
+                   <option value="3">3 Guests</option>
+                   <option value="4">4 Guests</option>
+                   <option value="5">5+ Guests</option>
+                </select>
+              </div>
             </div>
           </div>
 
@@ -114,29 +131,29 @@ const Booking = () => {
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">First Name</label>
                 <div className="relative">
-                  <FaUser className="absolute top-4 left-4 text-gray-500" />
-                  <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="glass-input w-full !pl-11" placeholder="First Name" />
+                  <FaUser className="absolute top-4 left-4 text-gray-600" />
+                  <input type="text" name="firstName" value={formData.firstName} readOnly className="glass-input w-full !pl-11 bg-white/5 text-gray-400 cursor-not-allowed border-transparent outline-none focus:ring-0" placeholder="First Name" />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">Last Name</label>
                 <div className="relative">
-                  <FaUser className="absolute top-4 left-4 text-gray-500" />
-                  <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} className="glass-input w-full !pl-11" placeholder="Last Name" />
+                  <FaUser className="absolute top-4 left-4 text-gray-600" />
+                  <input type="text" name="lastName" value={formData.lastName} readOnly className="glass-input w-full !pl-11 bg-white/5 text-gray-400 cursor-not-allowed border-transparent outline-none focus:ring-0" placeholder="Last Name" />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
                 <div className="relative">
-                  <FaEnvelope className="absolute top-4 left-4 text-gray-500" />
-                  <input type="email" name="email" value={formData.email} onChange={handleChange} className="glass-input w-full !pl-11" placeholder="john@gmail.com" />
+                  <FaEnvelope className="absolute top-4 left-4 text-gray-600" />
+                  <input type="email" name="email" value={formData.email} readOnly className="glass-input w-full !pl-11 bg-white/5 text-gray-400 cursor-not-allowed border-transparent outline-none focus:ring-0" placeholder="john@gmail.com" />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-400 mb-2">Phone Number</label>
                 <div className="relative">
-                  <FaPhone className="absolute top-4 left-4 text-gray-500" />
-                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="glass-input w-full !pl-11" placeholder="+1 (555) 000-0000" />
+                  <FaPhone className="absolute top-4 left-4 text-gray-600" />
+                  <input type="tel" name="phone" value={formData.phone} readOnly className="glass-input w-full !pl-11 bg-white/5 text-gray-400 cursor-not-allowed border-transparent outline-none focus:ring-0" placeholder="+1 (555) 000-0000" />
                 </div>
               </div>
             </div>
@@ -155,41 +172,12 @@ const Booking = () => {
             <h2 className="text-xl font-bold text-white mb-6 border-b border-white/10 pb-4">Payment Method</h2>
             
             <div className="space-y-6">
-              <div className="flex gap-4 mb-4">
-                <div 
-                  onClick={() => setPaymentMethod('razorpay')}
-                  className={`flex-1 p-4 rounded-xl flex items-center justify-center cursor-pointer transition-all ${
-                    paymentMethod === 'razorpay' 
-                      ? 'bg-white/5 border border-hotel-gold' 
-                      : 'bg-black/40 border border-white/10 opacity-50 hover:opacity-100'
-                  }`}
-                >
-                  <span className="text-white font-bold tracking-widest">Razorpay</span>
-                </div>
-                <div 
-                  onClick={() => setPaymentMethod('paypal')}
-                  className={`flex-1 p-4 rounded-xl flex items-center justify-center cursor-pointer transition-all ${
-                    paymentMethod === 'paypal' 
-                      ? 'bg-white/5 border border-hotel-gold' 
-                      : 'bg-black/40 border border-white/10 opacity-50 hover:opacity-100'
-                  }`}
-                >
-                  <span className="text-white font-bold">PayPal</span>
-                </div>
-              </div>
-
-              {paymentMethod === 'razorpay' ? (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-8 text-center bg-black/20 rounded-xl border border-white/5">
                   <div className="flex items-center justify-center space-x-1 text-2xl font-bold mb-4 tracking-tight">
                      <span className="text-[#3395FF]">Razor</span><span className="text-white">pay</span>
                   </div>
                   <p className="text-gray-300 px-4 text-sm">You will be securely authenticated by Razorpay's payment gateway to complete your transaction via UPI, NetBanking, or Cards.</p>
                 </motion.div>
-              ) : (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-8 text-center bg-black/20 rounded-xl border border-white/5">
-                  <p className="text-gray-300">You will be securely redirected to PayPal to complete your purchase after clicking "Confirm & Pay".</p>
-                </motion.div>
-              )}
             </div>
           </div>
         </div>
@@ -221,6 +209,10 @@ const Booking = () => {
                 <span className="text-gray-400">Length of stay</span>
                 <span className="text-white font-medium">{nights} Night{nights > 1 && 's'}</span>
               </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Guests</span>
+                <span className="text-white font-medium">{formData.guests} Guest{formData.guests > 1 && 's'}</span>
+              </div>
             </div>
 
             <div className="space-y-3 text-sm mb-6">
@@ -238,14 +230,14 @@ const Booking = () => {
               </div>
             </div>
 
-            <button onClick={handleConfirm} className="w-full btn-primary group">
+            <button type="submit" className="w-full btn-primary group">
                Confirm & Pay 
                <FaArrowRight className="group-hover:translate-x-1 transition-transform ml-2 inline-block" />
             </button>
             <p className="text-xs text-gray-500 text-center mt-3">By clicking Confirm & Pay, you agree to the Terms of Service.</p>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

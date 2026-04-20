@@ -3,13 +3,11 @@ import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FaCheckCircle, FaSpinner, FaTimesCircle } from 'react-icons/fa';
 import { useCreateBookingMutation } from '../slices/bookingsApiSlice';
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const Payment = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-  const isPayPal = state?.bookingPayload?.paymentMethod === 'paypal';
-  const [status, setStatus] = useState(isPayPal ? 'paypal_pending' : 'razorpay_modal');
+  const [status, setStatus] = useState('razorpay_modal');
   const [createBooking] = useCreateBookingMutation();
 
   const processPayment = async () => {
@@ -37,7 +35,6 @@ const Payment = () => {
   }, [status, createBooking, state]);
 
   return (
-    <PayPalScriptProvider options={{ "client-id": "test", currency: "USD" }}>
       <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative">
         
         {/* Razorpay Mock Modal */}
@@ -74,37 +71,10 @@ const Payment = () => {
           animate={{ opacity: 1, scale: 1 }}
           className="glass-panel p-10 rounded-2xl max-w-md w-full text-center border border-hotel-gold/30 shadow-2xl shadow-hotel-gold/10"
         >
-          {status === 'paypal_pending' ? (
-            <div className="flex flex-col items-center py-4">
-              <h2 className="text-2xl font-bold text-white mb-2">Complete Payment</h2>
-              <p className="text-gray-400 mb-6 font-medium text-sm">Please finalize your transaction via PayPal to secure this booking.</p>
-              <div className="w-full relative z-10">
-                <PayPalButtons
-                  style={{ layout: "vertical", shape: "rect", color: "gold" }}
-                  createOrder={(data, actions) => {
-                    const totalUsd = (state.bookingPayload.totalPrice / 83.0).toFixed(2); // Mock INR to USD fix
-                    return actions.order.create({
-                      purchase_units: [{ amount: { value: totalUsd } }]
-                    });
-                  }}
-                  onApprove={(data, actions) => {
-                    return actions.order.capture().then(() => {
-                      processPayment();
-                    });
-                  }}
-                  onCancel={() => {
-                    setStatus('error');
-                  }}
-                  onError={() => {
-                     setStatus('error');
-                  }}
-                />
-              </div>
-            </div>
-          ) : status === 'processing' ? (
+          {status === 'processing' ? (
             <div className="flex flex-col items-center py-8">
               <FaSpinner className="animate-spin text-5xl text-[#3395FF] mb-6" />
-              <h2 className="text-2xl font-bold text-white mb-2">{isPayPal ? "Processing PayPal..." : "Connecting to Razorpay..."}</h2>
+              <h2 className="text-2xl font-bold text-white mb-2">Connecting to Razorpay...</h2>
               <p className="text-gray-400">Authenticating secure transaction. Please do not refresh.</p>
             </div>
           ) : status === 'error' ? (
@@ -143,7 +113,6 @@ const Payment = () => {
           )}
         </motion.div>
       </div>
-    </PayPalScriptProvider>
   );
 };
 

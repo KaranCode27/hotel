@@ -27,12 +27,6 @@ import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import Offers from './pages/Offers';
 
-/* Transport Module */
-import TransportSearch from './pages/TransportSearch';
-import TransportResults from './pages/TransportResults';
-import TransportBooking from './pages/TransportBooking';
-import TransportConfirmation from './pages/TransportConfirmation';
-
 /* User Dashboard */
 import UserLayout from './layouts/UserLayout';
 import UserProfile from './pages/user/UserProfile';
@@ -54,7 +48,6 @@ import Invoice from './pages/admin/Invoice';
 import Feedback from './pages/admin/Feedback';
 import UserManagement from './pages/admin/UserManagement';
 import ContactMessages from './pages/admin/ContactMessages';
-import ManageTransports from './pages/admin/ManageTransports';
 
 function App() {
   return (
@@ -83,11 +76,6 @@ function App() {
           <Route path="terms" element={<Terms />} />
           <Route path="privacy" element={<Privacy />} />
           
-          {/* Transport Module */}
-          <Route path="transport" element={<TransportSearch />} />
-          <Route path="transport/results" element={<TransportResults />} />
-          <Route path="transport/book/:id" element={<TransportBooking />} />
-          <Route path="transport/confirmation" element={<TransportConfirmation />} />
           
           {/* Secured User Dashboard Routes */}
           <Route path="" element={<PrivateRoute />}>
@@ -116,7 +104,6 @@ function App() {
             
             <Route path="rooms" element={<ManageRooms />} />
             <Route path="bookings" element={<ManageBookings />} />
-            <Route path="transports" element={<ManageTransports />} />
             <Route path="invoice" element={<Invoice />} />
             <Route path="feedback" element={<Feedback />} />
             

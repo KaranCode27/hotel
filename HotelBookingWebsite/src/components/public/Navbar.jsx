@@ -26,7 +26,7 @@ const Navbar = () => {
 
   const links = [
     { name: 'Hotel', path: '/search' },
-    { name: 'Transport', path: '/transport' },
+    { name: 'FAQ', path: '/faq' },
     { name: 'About Us', path: '/about' },
     { name: 'Contact Us', path: '/contact' },
   ];

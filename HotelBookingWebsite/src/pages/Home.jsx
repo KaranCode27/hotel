@@ -34,7 +34,7 @@ const Home = () => {
           
           <div className="hidden md:flex space-x-8 text-sm font-semibold">
             <button onClick={() => navigate('/search')} className="text-gray-200 hover:text-white hover:underline decoration-hotel-gold decoration-2 underline-offset-4 transition-all">Hotel</button>
-            <button onClick={() => navigate('/transport')} className="text-gray-200 hover:text-white hover:underline decoration-hotel-gold decoration-2 underline-offset-4 transition-all">Transport</button>
+            <button onClick={() => navigate('/faq')} className="text-gray-200 hover:text-white hover:underline decoration-hotel-gold decoration-2 underline-offset-4 transition-all">FAQ</button>
             <button onClick={() => navigate('/about')} className="text-gray-200 hover:text-white hover:underline decoration-hotel-gold decoration-2 underline-offset-4 transition-all">About Us</button>
             <button onClick={() => navigate('/contact')} className="text-gray-200 hover:text-white hover:underline decoration-hotel-gold decoration-2 underline-offset-4 transition-all">Contact Us</button>
           </div>

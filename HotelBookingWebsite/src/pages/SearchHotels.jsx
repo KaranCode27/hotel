@@ -212,7 +212,12 @@ const SearchHotels = () => {
                            </div>
                          </div>
                          
-                         <div className="flex flex-wrap gap-2 mt-4 text-xs text-gray-300">
+                         {hotel.description && (
+                           <p className="text-gray-400 text-sm mt-3 line-clamp-2"><span className="text-gray-200 font-semibold mr-1">Description:</span>{hotel.description}</p>
+                         )}
+
+                         <div className="flex flex-wrap gap-2 mt-4 text-xs text-gray-300 items-center">
+                           <span className="text-gray-200 font-semibold mr-1 text-sm">Amenities:</span>
                            {hotel.amenities?.map((amenity, i) => (
                               <span key={`${amenity}-${i}`} className="bg-white/5 px-2 py-1 rounded">{amenity}</span>
                            ))}
@@ -222,7 +227,7 @@ const SearchHotels = () => {
                        <div className="flex justify-between items-end border-t border-white/10 mt-4 pt-4">
                          <p className="text-xs text-green-400">✓ Free Cancellation</p>
                          <div className="text-right">
-                           <p className="text-2xl font-bold text-white">₹{hotel.pricePerNight}</p>
+                           <p className="text-2xl font-bold text-white"><span className="text-sm text-gray-400 font-normal mr-1">Price:</span>₹{Number(hotel.pricePerNight).toLocaleString('en-IN')}</p>
                            <p className="text-xs text-gray-500 mb-2">per night</p>
                            <button onClick={() => navigate(`/hotel/${hotel._id}`)} className="bg-white hover:bg-gray-200 text-hotel-dark font-bold py-1.5 px-6 rounded-lg transition-colors text-sm">See Availability</button>
                          </div>

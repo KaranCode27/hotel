@@ -9,7 +9,8 @@ const HotelDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const { data: hotel, isLoading, error } = useGetHotelDetailsQuery(id);
+  const { data: responseData, isLoading, error } = useGetHotelDetailsQuery(id);
+  const hotel = responseData?.data || responseData;
 
   if (isLoading) return <div className="text-white text-center py-20 text-2xl">Loading hotel details...</div>;
   if (error) return <div className="text-red-500 text-center py-20 text-2xl">{error?.data?.message || error.error || 'Failed to load hotel'}</div>;
@@ -40,14 +41,14 @@ const HotelDetails = () => {
         {/* Main Details */}
         <div className="lg:col-span-2 space-y-12">
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">About this property</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Description</h2>
             <p className="text-gray-400 leading-relaxed">
               {hotel?.description || "Description not available."}
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-6">Popular Amenities</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Amenities</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                {hotel?.amenities?.length > 0 ? hotel.amenities.map((item, i) => (
                  <div key={i} className="flex items-center text-gray-300 p-3 bg-white/5 rounded-lg border border-white/5 hover:border-hotel-gold/30 transition-colors">
@@ -55,7 +56,7 @@ const HotelDetails = () => {
                    <span className="text-sm font-medium">{item}</span>
                  </div>
                )) : (
-                 <p className="text-gray-400">Amenities information not available.</p>
+                 <p className="text-gray-400 col-span-2 sm:col-span-3 italic">Detailed amenities information is currently not available for this property. Please contact the hotel desk directly for specific inquiries.</p>
                )}
             </div>
           </section>
@@ -77,7 +78,7 @@ const HotelDetails = () => {
                  </ul>
                </div>
                <div className="w-full sm:w-auto text-right">
-                 <div className="text-3xl font-bold text-white mb-1">₹{hotel?.pricePerNight}</div>
+                 <div className="text-3xl font-bold text-white mb-1"><span className="text-sm text-gray-400 font-normal mr-1">Price:</span>₹{Number(hotel?.pricePerNight).toLocaleString('en-IN')}</div>
                  <p className="text-xs text-gray-500 mb-4">per night includes taxes</p>
                  <button onClick={() => navigate(`/book/${id}`)} className="btn-primary w-full py-2">Select Room</button>
                </div>
@@ -88,7 +89,7 @@ const HotelDetails = () => {
         {/* Floating Booking Widget */}
         <div className="lg:col-span-1">
           <div className="glass-panel p-6 rounded-2xl sticky top-28 border border-hotel-gold/30">
-            <div className="text-3xl font-bold text-white mb-1">₹{hotel?.pricePerNight} <span className="text-sm font-normal text-gray-400">/night</span></div>
+            <div className="text-3xl font-bold text-white mb-1"><span className="text-sm text-gray-400 font-normal mr-1">Price:</span>₹{Number(hotel?.pricePerNight).toLocaleString('en-IN')} <span className="text-sm font-normal text-gray-400">/night</span></div>
             <p className="text-xs text-green-400 mb-6 flex items-center"><FaCheck className="mr-1"/> Best Price Guaranteed</p>
             
             <div className="space-y-4 mb-6">

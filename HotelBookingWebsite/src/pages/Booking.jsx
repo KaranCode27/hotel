@@ -8,7 +8,7 @@ import { useGetHotelRoomsQuery } from '../slices/roomsApiSlice';
 const Booking = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [paymentMethod, setPaymentMethod] = useState('creditCard');
+  const [paymentMethod, setPaymentMethod] = useState('razorpay');
   
   const [formData, setFormData] = useState({
     firstName: '',
@@ -27,8 +27,10 @@ const Booking = () => {
   const [checkInDate, setCheckInDate] = useState(tomorrow.toISOString().split('T')[0]);
   const [checkOutDate, setCheckOutDate] = useState(nextWeek.toISOString().split('T')[0]);
 
-  const { data: hotel, isLoading: isHotelLoading } = useGetHotelDetailsQuery(id);
+  const { data: hotelResponse, isLoading: isHotelLoading } = useGetHotelDetailsQuery(id);
   const { data: roomsData, isLoading: isRoomsLoading } = useGetHotelRoomsQuery(id);
+
+  const hotel = hotelResponse?.data || hotelResponse;
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -155,14 +157,14 @@ const Booking = () => {
             <div className="space-y-6">
               <div className="flex gap-4 mb-4">
                 <div 
-                  onClick={() => setPaymentMethod('creditCard')}
+                  onClick={() => setPaymentMethod('razorpay')}
                   className={`flex-1 p-4 rounded-xl flex items-center justify-center cursor-pointer transition-all ${
-                    paymentMethod === 'creditCard' 
+                    paymentMethod === 'razorpay' 
                       ? 'bg-white/5 border border-hotel-gold' 
                       : 'bg-black/40 border border-white/10 opacity-50 hover:opacity-100'
                   }`}
                 >
-                  <span className="text-white font-bold tracking-widest">Credit Card</span>
+                  <span className="text-white font-bold tracking-widest">Razorpay</span>
                 </div>
                 <div 
                   onClick={() => setPaymentMethod('paypal')}
@@ -176,28 +178,12 @@ const Booking = () => {
                 </div>
               </div>
 
-              {paymentMethod === 'creditCard' ? (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-6 block">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">Name on Card</label>
-                    <input type="text" className="glass-input w-full" placeholder="Aarav Patel" />
+              {paymentMethod === 'razorpay' ? (
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-8 text-center bg-black/20 rounded-xl border border-white/5">
+                  <div className="flex items-center justify-center space-x-1 text-2xl font-bold mb-4 tracking-tight">
+                     <span className="text-[#3395FF]">Razor</span><span className="text-white">pay</span>
                   </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-400 mb-2">Card Number</label>
-                    <input type="text" className="glass-input w-full font-mono tracking-widest" placeholder="0000 0000 0000 0000" />
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-400 mb-2">Expiry Date</label>
-                      <input type="text" className="glass-input w-full font-mono" placeholder="MM/YY" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-400 mb-2">CVC</label>
-                      <input type="text" className="glass-input w-full font-mono" placeholder="123" />
-                    </div>
-                  </div>
+                  <p className="text-gray-300 px-4 text-sm">You will be securely authenticated by Razorpay's payment gateway to complete your transaction via UPI, NetBanking, or Cards.</p>
                 </motion.div>
               ) : (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-8 text-center bg-black/20 rounded-xl border border-white/5">

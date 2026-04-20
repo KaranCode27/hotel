@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaDownload, FaFileInvoice } from 'react-icons/fa';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 const Invoice = () => {
   const invoices = [
@@ -8,6 +10,35 @@ const Invoice = () => {
     { id: 'INV-2026-002', guest: 'John Smith', amount: '₹36,000', date: 'Oct 16, 2026', status: 'Pending' },
     { id: 'INV-2026-003', guest: 'Emma Watson', amount: '₹1,25,000', date: 'Oct 25, 2026', status: 'Paid' },
   ];
+
+  const generatePDF = (inv) => {
+    const doc = new jsPDF();
+
+    doc.setFontSize(22);
+    doc.setTextColor(51, 149, 255);
+    doc.text('LuxeStays Invoice', 14, 22);
+    
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0);
+    doc.text(`Invoice Number: ${inv.id}`, 14, 32);
+    doc.text(`Guest: ${inv.guest}`, 14, 40);
+    doc.text(`Issue Date: ${inv.date}`, 14, 48);
+    doc.text(`Amount: ${inv.amount}`, 14, 56);
+    doc.text(`Status: ${inv.status}`, 14, 64);
+    
+    doc.autoTable({
+      startY: 80,
+      head: [['Description', 'Amount']],
+      body: [
+        ['Room Stay', inv.amount],
+        ['Taxes & Fees', 'Included in Total'],
+      ],
+      theme: 'grid',
+      headStyles: { fillColor: [51, 149, 255] }
+    });
+
+    doc.save(`${inv.id}.pdf`);
+  };
 
   return (
     <motion.div
@@ -49,7 +80,7 @@ const Invoice = () => {
                   </span>
                 </td>
                 <td className="py-4 text-right">
-                  <button className="text-hotel-gold hover:text-white transition-colors border border-hotel-gold/30 px-3 py-1 rounded-lg text-xs flex items-center gap-2 ml-auto">
+                  <button onClick={() => generatePDF(inv)} className="text-hotel-gold hover:text-white transition-colors border border-hotel-gold/30 px-3 py-1 rounded-lg text-xs flex items-center gap-2 ml-auto">
                     <FaDownload /> PDF
                   </button>
                 </td>

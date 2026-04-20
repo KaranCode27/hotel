@@ -1,0 +1,109 @@
+<mxfile host="Electron" modified="2024-05-20T12:00:00.000Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.8 Chrome/114.0.5735.289 Electron/25.8.1 Safari/537.36" etag="wireframe" version="21.6.8" type="device">
+  <diagram name="Home_and_Admin" id="p1">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Home Page Browser -->
+        <mxCell id="bp_home" value="Home Page" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="800" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="home_nav" value="LOGO &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Home &amp;nbsp;|&amp;nbsp; Hotels &amp;nbsp;|&amp;nbsp; Transport &amp;nbsp;|&amp;nbsp; Contact &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Profile &amp;nbsp;[Login/Signup]" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=20;" vertex="1" parent="bp_home">
+          <mxGeometry x="0" y="23" width="800" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="home_hero" value="Find and Book Your Perfect Stay" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;fillColor=#f5f5f5;" vertex="1" parent="bp_home">
+          <mxGeometry x="0" y="73" width="800" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="home_search" value="Location&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&amp;nbsp;Check-in&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&amp;nbsp;Check-out&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&amp;nbsp;Guests&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&amp;nbsp;[ SEARCH ]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;shadow=1;" vertex="1" parent="bp_home">
+          <mxGeometry x="100" y="240" width="600" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="home_title_feat" value="Featured Destinations" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1" vertex="1" parent="bp_home">
+          <mxGeometry x="20" y="320" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="home_card1" value="[ Hotel Image ]&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Taj Mahal Palace&lt;/b&gt;&lt;br&gt;Mumbai&lt;br&gt;$250 / night&lt;br&gt;&lt;br&gt;[ Book Now ]" style="rounded=1;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="bp_home">
+          <mxGeometry x="20" y="360" width="230" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="home_card2" value="[ Hotel Image ]&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;The Leela Palace&lt;/b&gt;&lt;br&gt;New Delhi&lt;br&gt;$210 / night&lt;br&gt;&lt;br&gt;[ Book Now ]" style="rounded=1;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="bp_home">
+          <mxGeometry x="285" y="360" width="230" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="home_card3" value="[ Hotel Image ]&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;ITC Grand Chola&lt;/b&gt;&lt;br&gt;Chennai&lt;br&gt;$180 / night&lt;br&gt;&lt;br&gt;[ Book Now ]" style="rounded=1;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="bp_home">
+          <mxGeometry x="550" y="360" width="230" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="home_footer" value="© 2026 Hotel Booking platform. All Rights Reserved." style="rounded=0;whiteSpace=wrap;html=1;align=center;fillColor=#333333;fontColor=#ffffff;" vertex="1" parent="bp_home">
+          <mxGeometry x="0" y="560" width="800" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Search Results -->
+        <mxCell id="bp_search" value="Search Results / Hotels Listing" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="900" y="40" width="800" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="search_nav" value="LOGO &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Home &amp;nbsp;|&amp;nbsp; Hotels &amp;nbsp;|&amp;nbsp; Transport &amp;nbsp;|&amp;nbsp; Contact &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Profile &amp;nbsp;[User Menu]" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=20;" vertex="1" parent="bp_search">
+          <mxGeometry x="0" y="23" width="800" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="search_sidebar" value="&lt;b&gt;Filters&lt;/b&gt;&lt;br&gt;&lt;hr&gt;&lt;b&gt;Price Range&lt;/b&gt;&lt;br&gt;[ ] $0 - $50&lt;br&gt;[ ] $50 - $100&lt;br&gt;[ ] $100 - $200&lt;br&gt;[ ] $200+&lt;br&gt;&lt;br&gt;&lt;b&gt;Amenities&lt;/b&gt;&lt;br&gt;[ ] Free Wi-Fi&lt;br&gt;[ ] Pool&lt;br&gt;[ ] Breakfast&lt;br&gt;[ ] Gym&lt;br&gt;&lt;br&gt;&lt;b&gt;Star Rating&lt;/b&gt;&lt;br&gt;[ ] 5 Stars&lt;br&gt;[ ] 4 Stars&lt;br&gt;[ ] 3 Stars" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=10;spacingTop=10;" vertex="1" parent="bp_search">
+          <mxGeometry x="20" y="90" width="200" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="search_res1" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;b&gt;Ocean View Resort&lt;/b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; $120 / night&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Goa, India&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ⭐⭐⭐⭐&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Pool, Free Breakfast&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; [ View Details ]" style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="bp_search">
+          <mxGeometry x="240" y="90" width="540" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="search_res1_img" value="[ Image ]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e5e5e5;" vertex="1" parent="bp_search">
+          <mxGeometry x="250" y="100" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="search_res2" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;b&gt;Mountain Retreat&lt;/b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; $90 / night&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Shimla, India&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ⭐⭐⭐&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Wi-Fi, Restaurant&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; [ View Details ]" style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="bp_search">
+          <mxGeometry x="240" y="230" width="540" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="search_res2_img" value="[ Image ]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e5e5e5;" vertex="1" parent="bp_search">
+          <mxGeometry x="250" y="240" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="search_res3" value="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;b&gt;City Center Hotel&lt;/b&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; $150 / night&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Bangalore, India&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ⭐⭐⭐⭐⭐&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Executive Lounge, Gym&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; [ View Details ]" style="rounded=1;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="bp_search">
+          <mxGeometry x="240" y="370" width="540" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="search_res3_img" value="[ Image ]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e5e5e5;" vertex="1" parent="bp_search">
+          <mxGeometry x="250" y="380" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pagination" value="&lt; Prev&amp;nbsp;&amp;nbsp;&amp;nbsp;1&amp;nbsp;&amp;nbsp;&amp;nbsp;2&amp;nbsp;&amp;nbsp;&amp;nbsp;3&amp;nbsp;&amp;nbsp;&amp;nbsp;Next &gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="bp_search">
+          <mxGeometry x="410" y="520" width="200" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Admin Dashboard -->
+        <mxCell id="bp_admin" value="Admin Dashboard" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="40" y="680" width="800" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="admin_nav" value="Admin Panel &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;[Admin Name]  |  [Logout]" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=20;fillColor=#1e293b;fontColor=#ffffff;" vertex="1" parent="bp_admin">
+          <mxGeometry x="0" y="23" width="800" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="admin_sidebar" value="&lt;br&gt;&lt;b&gt;Navigation&lt;/b&gt;&lt;br&gt;&lt;hr&gt;📊 Dashboard&lt;br&gt;&lt;br&gt;🏨 Manage Hotels&lt;br&gt;➕ Add Hotel&lt;br&gt;&lt;br&gt;📅 Manage Bookings&lt;br&gt;👥 Manage Users&lt;br&gt;&lt;br&gt;💬 Feedback&lt;br&gt;📄 Invoices" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=20;fillColor=#f8fafc;" vertex="1" parent="bp_admin">
+          <mxGeometry x="0" y="73" width="200" height="527" as="geometry" />
+        </mxCell>
+        <mxCell id="admin_stat1" value="&lt;font size=&quot;1&quot;&gt;&lt;b style=&quot;font-size: 16px;&quot;&gt;Total Hotels&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;24&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2fe;" vertex="1" parent="bp_admin">
+          <mxGeometry x="220" y="90" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="admin_stat2" value="&lt;font size=&quot;1&quot;&gt;&lt;b style=&quot;font-size: 16px;&quot;&gt;Total Bookings&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;142&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;" vertex="1" parent="bp_admin">
+          <mxGeometry x="410" y="90" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="admin_stat3" value="&lt;font size=&quot;1&quot;&gt;&lt;b style=&quot;font-size: 16px;&quot;&gt;Total Revenue&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 24px;&quot;&gt;$12,450&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef08a;" vertex="1" parent="bp_admin">
+          <mxGeometry x="600" y="90" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="admin_table" value="&lt;div style=&quot;text-align: left; padding: 10px;&quot;&gt;&lt;b&gt;Recent Bookings&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;pre style=&quot;margin:0; padding:10px;&quot;&gt;&#10;ID    | Guest         | Hotel             | Dates        | Amount | Status      | Action&#10;-----------------------------------------------------------------------------------------&#10;#1042| John Doe      | Taj Mahal Palace  | 20-25 Apr    | $1250  | Confirmed   | [View]&#10;#1043| Mary Smith    | Mountain Retreat  | 22-26 Apr    | $360   | Pending     | [View]&#10;#1044| Alice Johnson | Ocean View Resort | 24-30 Apr    | $720   | Confirmed   | [View]&#10;#1045| Bob Martin    | City Center Hotel | 25-27 Apr    | $300   | Cancelled   | [View]&#10;&lt;/pre&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="bp_admin">
+          <mxGeometry x="220" y="210" width="550" height="200" as="geometry" />
+        </mxCell>
+
+        <!-- Guest Flow / Booking Form -->
+        <mxCell id="bp_booking" value="Checkout / Booking Summary" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="900" y="680" width="800" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="book_nav" value="LOGO &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Profile &amp;nbsp;[User Menu]" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=20;" vertex="1" parent="bp_booking">
+          <mxGeometry x="0" y="23" width="800" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="book_form_box" value="&lt;div style=&quot;padding:10px;&quot;&gt;&lt;b&gt;Guest Information&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;padding:10px;&quot;&gt;Full Name: &lt;span style=&quot;display:inline-block;border:1px solid #ccc;padding:2px;width:300px;&quot;&gt;John Doe&lt;/span&gt;&lt;br&gt;&lt;br&gt;Email Address: &lt;span style=&quot;display:inline-block;border:1px solid #ccc;padding:2px;width:300px;&quot;&gt;john@example.com&lt;/span&gt;&lt;br&gt;&lt;br&gt;Phone Number: &lt;span style=&quot;display:inline-block;border:1px solid #ccc;padding:2px;width:300px;&quot;&gt;+91 9876543210&lt;/span&gt;&lt;br&gt;&lt;br&gt;Special Requests:&lt;br&gt;&lt;div style=&quot;border:1px solid #ccc;height:60px;width:400px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;" vertex="1" parent="bp_booking">
+          <mxGeometry x="40" y="100" width="450" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="book_summary" value="&lt;div style=&quot;padding:10px;&quot;&gt;&lt;b&gt;Booking Summary&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div style=&quot;padding:10px;&quot;&gt;&lt;b&gt;Taj Mahal Palace&lt;/b&gt;&lt;br&gt;Mumbai&lt;br&gt;&lt;br&gt;Check-in: 20 Apr 2026&lt;br&gt;Check-out: 25 Apr 2026&lt;br&gt;Guests: 2 Adults&lt;br&gt;&lt;br&gt;Room Price: $200 x 5 nights = $1000&lt;br&gt;Taxes &amp; Fees: $250&lt;br&gt;&lt;hr&gt;&lt;b&gt;Total Amount:&lt;/b&gt; $1250&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;div align=&quot;center&quot; style=&quot;background-color:#0ea5e9;color:white;padding:10px;border-radius:5px;&quot;&gt;&lt;b&gt;Pay Now with Razorpay&lt;/b&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fillColor=#f8fafc;" vertex="1" parent="bp_booking">
+          <mxGeometry x="510" y="100" width="250" height="350" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

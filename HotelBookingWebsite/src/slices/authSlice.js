@@ -1,0 +1,28 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+// Retrieve user info from local storage if it exists
+const initialState = {
+  userInfo: localStorage.getItem('userInfo')
+    ? JSON.parse(localStorage.getItem('userInfo'))
+    : null,
+};
+
+const authSlice = createSlice({
+  name: 'auth',
+  initialState,
+  reducers: {
+    // Fired when user logs in or registers successfully
+    setCredentials: (state, action) => {
+      state.userInfo = action.payload;
+      localStorage.setItem('userInfo', JSON.stringify(action.payload));
+    },
+    // Fired when user logs out
+    logout: (state) => {
+      state.userInfo = null;
+      localStorage.removeItem('userInfo');
+    },
+  },
+});
+
+export const { setCredentials, logout } = authSlice.actions;
+export default authSlice.reducer;

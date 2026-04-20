@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-hotel-dark text-gray-200 antialiased;
+    margin: 0;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-hotel-card/60 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+  
+  .glass-input {
+    @apply bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-hotel-gold/50 focus:border-hotel-gold transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-hotel-gold hover:bg-hotel-accent text-black font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform active:scale-95 flex justify-center items-center gap-2;
+  }
+}

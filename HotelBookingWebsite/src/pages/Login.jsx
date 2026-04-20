@@ -20,7 +20,7 @@ const Login = () => {
     try {
       const res = await login({ email: data.email, password: data.password }).unwrap();
       dispatch(setCredentials({ ...res }));
-      toast.success('Login Successful!');
+      toast.success(`Welcome back, ${res.name}!`);
       
       // Send admins to the admin dashboard, and normal users to user dashboard
       if (res.role === 'admin') {

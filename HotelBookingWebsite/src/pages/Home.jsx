@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { FaCalendarAlt, FaUserFriends, FaSearch, FaMapMarkerAlt } from 'react-icons/fa';
+import { useSelector, useDispatch } from 'react-redux';
+import { useLogoutApiCallMutation } from '../slices/usersApiSlice';
+import { logout } from '../slices/authSlice';
+import { FaCalendarAlt, FaUserFriends, FaSearch, FaMapMarkerAlt, FaUserCircle, FaAngleDown } from 'react-icons/fa';
 import heroBg from '../assets/agoda_hero_resort.png';
 
 const Home = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.auth);
+  const [logoutApiCall] = useLogoutApiCallMutation();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [destination, setDestination] = useState('');
+
+  const handleLogout = async () => {
+    try {
+      await logoutApiCall().unwrap();
+      dispatch(logout());
+      navigate('/login');
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-hotel-dark overflow-hidden font-sans">
@@ -15,17 +33,52 @@ const Home = () => {
           <h1 className="text-3xl font-bold text-white tracking-widest mr-10"><span className="text-hotel-gold">Luxe</span>Stays</h1>
           
           <div className="hidden md:flex space-x-8 text-sm font-semibold">
-            <button onClick={() => navigate('/search')} className="text-gray-200 hover:text-white hover:underline decoration-hotel-gold decoration-2 underline-offset-4 transition-all">Hotels</button>
+            <button onClick={() => navigate('/search')} className="text-gray-200 hover:text-white hover:underline decoration-hotel-gold decoration-2 underline-offset-4 transition-all">Hotel</button>
+            <button onClick={() => navigate('/transport')} className="text-gray-200 hover:text-white hover:underline decoration-hotel-gold decoration-2 underline-offset-4 transition-all">Transport</button>
             <button onClick={() => navigate('/about')} className="text-gray-200 hover:text-white hover:underline decoration-hotel-gold decoration-2 underline-offset-4 transition-all">About Us</button>
             <button onClick={() => navigate('/contact')} className="text-gray-200 hover:text-white hover:underline decoration-hotel-gold decoration-2 underline-offset-4 transition-all">Contact Us</button>
           </div>
         </div>
 
-        <div className="flex gap-4">
-          <button onClick={() => navigate('/login')} className="text-white hover:text-hotel-gold font-medium px-4 transition-colors hidden sm:block">Sign In</button>
-          <button onClick={() => navigate('/register')} className="bg-hotel-gold hover:bg-hotel-accent text-black font-semibold py-2 px-6 rounded-lg transition-transform active:scale-95">Register</button>
-          {/* Quick link for testing admin panel */}
-          <button onClick={() => navigate('/admin/dashboard')} className="border border-white/20 hover:bg-white/10 text-white font-semibold py-2 px-6 rounded-lg transition-colors xl:ml-4 text-sm hidden xl:block">Admin Portal</button>
+        <div className="flex gap-4 items-center relative">
+          {userInfo ? (
+            <div className="relative">
+              <button 
+                onClick={() => setDropdownOpen(!dropdownOpen)} 
+                className="flex items-center gap-2 text-white hover:text-hotel-gold transition-colors font-medium bg-black/20 px-4 py-2 rounded-full border border-white/10"
+              >
+                <FaUserCircle className="text-xl" />
+                <span>{userInfo.name.split(' ')[0]}</span>
+                <FaAngleDown className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-hotel-card border border-white/10 divide-y divide-white/10">
+                  <div className="py-1">
+                    <button 
+                      onClick={() => { setDropdownOpen(false); navigate(userInfo.role === 'admin' ? '/admin/dashboard' : '/user/profile'); }}
+                      className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5"
+                    >
+                      Dashboard
+                    </button>
+                  </div>
+                  <div className="py-1">
+                    <button 
+                      onClick={() => { setDropdownOpen(false); handleLogout(); }}
+                      className="w-full text-left px-4 py-2 text-sm text-red-400 hover:text-red-300 hover:bg-white/5 font-medium"
+                    >
+                      Log Out
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            <>
+              <button onClick={() => navigate('/login')} className="text-white hover:text-hotel-gold font-medium px-4 transition-colors hidden sm:block">Sign In</button>
+              <button onClick={() => navigate('/register')} className="bg-hotel-gold hover:bg-hotel-accent text-black font-semibold py-2 px-6 rounded-lg transition-transform active:scale-95">Register</button>
+            </>
+          )}
         </div>
       </nav>
 
@@ -61,7 +114,13 @@ const Home = () => {
               <FaMapMarkerAlt className="text-hotel-gold text-xl mr-3" />
               <div className="flex flex-col w-full">
                 <span className="text-xs text-gray-400 font-medium">Destination or property</span>
-                <input type="text" className="bg-transparent text-white focus:outline-none font-semibold w-full" placeholder="Where are you going?" />
+                <input 
+                  type="text" 
+                  value={destination}
+                  onChange={(e) => setDestination(e.target.value)}
+                  className="bg-transparent text-white focus:outline-none font-semibold w-full" 
+                  placeholder="Where are you going?" 
+                />
               </div>
             </div>
 
@@ -85,7 +144,7 @@ const Home = () => {
 
             {/* Search Button */}
             <button 
-              onClick={() => navigate('/search')}
+              onClick={() => navigate('/search', { state: { destination } })}
               className="bg-hotel-gold hover:bg-hotel-accent text-black p-4 rounded-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-hotel-gold/20 md:w-32"
             >
               <span className="font-bold text-lg hidden max-md:block mr-2">Search</span>

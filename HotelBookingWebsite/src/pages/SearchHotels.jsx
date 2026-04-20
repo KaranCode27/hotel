@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaStar, FaMapMarkerAlt, FaHeart, FaRegHeart } from 'react-icons/fa';
 import { useGetHotelsQuery } from '../slices/hotelsApiSlice';
@@ -9,8 +9,19 @@ import { setCredentials } from '../slices/authSlice';
 
 const SearchHotels = () => {
   const navigate = useNavigate();
-  const [destination, setDestination] = useState('');
-  const [searchQuery, setSearchQuery] = useState('');
+  const location = useLocation();
+  
+  const initialDestination = location.state?.destination || '';
+  
+  const [destination, setDestination] = useState(initialDestination);
+  const [searchQuery, setSearchQuery] = useState(initialDestination);
+
+  useEffect(() => {
+    if (location.state?.destination) {
+      setDestination(location.state.destination);
+      setSearchQuery(location.state.destination);
+    }
+  }, [location.state?.destination]);
   
   // Filters & Sorting state
   const [sortOrder, setSortOrder] = useState('none');

@@ -25,11 +25,10 @@ const Navbar = () => {
   };
 
   const links = [
-    { name: 'Home', path: '/' },
+    { name: 'Hotel', path: '/search' },
     { name: 'Transport', path: '/transport' },
-    { name: 'Search', path: '/search' },
     { name: 'About Us', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   return (

@@ -28,7 +28,7 @@ const Register = () => {
       
       dispatch(setCredentials({ ...res }));
       toast.success('Account created successfully!');
-      navigate('/user/profile'); // Immediately redirect into user portal
+      navigate('/'); // Immediately redirect to home page
     } catch (err) {
       toast.error(err?.data?.message || err.error || 'Failed to create account');
     }

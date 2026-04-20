@@ -5,7 +5,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 const Contact = () => {
   return (
     <div className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -19,7 +19,7 @@ const Contact = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         {/* Contact Info */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -27,14 +27,14 @@ const Contact = () => {
         >
           <div className="glass-panel p-8 rounded-2xl">
             <h3 className="text-xl font-bold text-white mb-6">Contact Information</h3>
-            
+
             <div className="flex items-start mb-6">
               <div className="p-3 bg-hotel-gold/10 rounded-lg mr-4 text-hotel-gold">
                 <FaPhoneAlt />
               </div>
               <div>
                 <p className="text-sm text-gray-400 mb-1">Toll Free 24/7</p>
-                <p className="text-white font-medium">+1 (800) 123-LUXE</p>
+                <p className="text-white font-medium">+91 9998887777</p>
               </div>
             </div>
 
@@ -44,7 +44,7 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-400 mb-1">Email Support</p>
-                <p className="text-white font-medium">concierge@luxestays.com</p>
+                <p className="text-white font-medium">luxstays@gmail.com</p>
               </div>
             </div>
 
@@ -54,14 +54,14 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-sm text-gray-400 mb-1">Headquarters</p>
-                <p className="text-white font-medium">450 Luxury Ave, Suite 90<br/>New York, NY 10022</p>
+                <p className="text-white font-medium">Bhavnath<br />Junagadh, Gujarat</p>
               </div>
             </div>
           </div>
         </motion.div>
 
         {/* Contact Form */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}

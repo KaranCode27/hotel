@@ -22,11 +22,11 @@ const Login = () => {
       dispatch(setCredentials({ ...res }));
       toast.success(`Welcome back, ${res.name}!`);
       
-      // Send admins to the admin dashboard, and normal users to user dashboard
+      // Send admins to the admin dashboard, and normal users to the home page
       if (res.role === 'admin') {
         navigate('/admin/dashboard');
       } else {
-        navigate('/user/profile');
+        navigate('/');
       }
     } catch (err) {
       toast.error(err?.data?.message || err.error || 'Failed to login');

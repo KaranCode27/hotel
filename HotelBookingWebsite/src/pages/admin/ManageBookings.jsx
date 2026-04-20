@@ -70,7 +70,7 @@ const ManageBookings = () => {
               {bookings.map((booking) => (
                 <tr key={booking._id} className="hover:bg-white/5 transition-colors">
                   <td className="p-4 font-mono text-hotel-gold text-xs">{booking._id?.substring(0,8).toUpperCase()}</td>
-                  <td className="p-4 font-medium text-white">{booking.userRef?.name || 'Guest'}</td>
+                  <td className="p-4 font-medium text-white">{booking.guestName || booking.userRef?.name || 'Guest'}</td>
                   <td className="p-4 text-gray-400">{booking.hotelRef?.name || 'Hotel'}</td>
                   <td className="p-4 text-gray-400">{formatDate(booking.checkInDate)} - {formatDate(booking.checkOutDate)}</td>
                   <td className="p-4 font-medium text-white">₹{booking.totalPrice?.toLocaleString()}</td>

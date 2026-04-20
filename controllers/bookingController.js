@@ -7,7 +7,7 @@ import Hotel from '../models/Hotel.js';
 // @access  Private
 export const createBooking = async (req, res) => {
   try {
-    const { hotelRef, roomRef, checkInDate, checkOutDate, guestCount } = req.body;
+    const { hotelRef, roomRef, checkInDate, checkOutDate, guestCount, guestName } = req.body;
 
     // Validate hotel and room
     const hotel = await Hotel.findById(hotelRef);
@@ -40,7 +40,8 @@ export const createBooking = async (req, res) => {
       checkInDate,
       checkOutDate,
       guestCount,
-      totalPrice
+      totalPrice,
+      guestName
     });
 
     res.status(201).json({
@@ -80,7 +81,7 @@ export const getMyBookings = async (req, res) => {
 export const getAllBookings = async (req, res) => {
   try {
     const bookings = await Booking.find()
-      .populate('userRef', 'firstName lastName email')
+      .populate('userRef', 'name email')
       .populate('hotelRef', 'name')
       .populate('roomRef', 'roomNumber')
       .sort('-createdAt');

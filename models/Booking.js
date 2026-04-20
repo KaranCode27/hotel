@@ -32,6 +32,10 @@ const BookingSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'Guest count is required']
   },
+  guestName: {
+    type: String,
+    required: false
+  },
   status: {
     type: String,
     enum: ['Pending', 'Confirmed', 'Cancelled', 'Completed'],
